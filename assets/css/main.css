@@ -1,0 +1,291 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --color-AlmostWhite: hsl(0, 0%, 98%);
+  --color-MediumGray: hsl(0, 0%, 41%);
+  --color-AlmostBlack: hsl(0, 0%, 8%);
+}
+
+body {
+  position: relative;
+  font-family: "Epilogue", sans-serif;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 5;
+}
+.navbar nav ul li {
+  margin: 1.2em 0;
+  list-style-type: none;
+  display: inline-block;
+}
+.navbar nav ul a {
+  text-decoration: none;
+  padding: 0.8em 1.2em;
+  color: var(--color-MediumGray);
+  font-size: 0.8em;
+  margin-left: 0.5em;
+}
+.navbar nav ul a:hover {
+  color: var(--color-AlmostBlack);
+}
+.navbar .navleft {
+  display: flex;
+  gap: 3rem;
+}
+.navbar .navleft .navlogo {
+  padding: 0.7em 0;
+}
+.navbar .navleft .navmain a.witharrow::after {
+  content: url(../images/icon-arrow-down.svg);
+  margin-left: 0.5em;
+}
+.navbar .navleft .navmain a.witharrow:focus::after {
+  content: url(../images/icon-arrow-up.svg);
+}
+.navbar .navleft .navmain nav.features, .navbar .navleft .navmain nav.company {
+  position: absolute;
+  border-radius: 10px;
+  padding: 1.2em;
+  background: var(--color-AlmostWhite);
+  box-shadow: 1.3px 2.4px 10px rgba(0, 0, 0, 0.125), 10px 19px 80px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+.navbar .navleft .navmain nav.features ul a, .navbar .navleft .navmain nav.company ul a {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  gap: 0.8em;
+  margin-bottom: 1.1em;
+}
+.navbar .navleft .navmain nav.features ul a:last-child, .navbar .navleft .navmain nav.company ul a:last-child {
+  margin-bottom: 0;
+}
+.navbar .navleft .navmain nav.features ul li, .navbar .navleft .navmain nav.company ul li {
+  display: block;
+  margin: 0;
+}
+.navbar .navleft .navmain nav.features {
+  transform: translate(-35px, 5px);
+}
+.navbar .navleft .navmain nav.company {
+  transform: translate(110px, 5px);
+}
+.navbar .navright .withborder {
+  border: 2px solid var(--color-MediumGray);
+  border-radius: 15px;
+}
+.navbar .navright a.withborder:hover {
+  border: 2px solid var(--color-AlmostBlack);
+}
+
+.navmobilemenu, .navmobile {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  position: relative;
+  margin: 1.5rem auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.content .contentmain {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+.content .contentmain h1 {
+  font-size: 4.5em;
+  padding-right: 2em;
+  margin-bottom: 0.3em;
+}
+.content .contentmain p {
+  color: var(--color-MediumGray);
+  width: 25em;
+  line-height: 1.5em;
+  margin-bottom: 2.5em;
+}
+.content .contentmain a {
+  width: 9em;
+  padding: 0.9em 1em;
+  text-decoration: none;
+  color: var(--color-AlmostWhite);
+  background: var(--color-AlmostBlack);
+  text-align: center;
+  border: 1px solid var(--color-AlmostBlack);
+  border-radius: 15px;
+  margin-bottom: 3em;
+}
+.content .contentmain a:hover {
+  color: var(--color-AlmostBlack);
+  background: var(--color-AlmostWhite);
+}
+.content .contentmain .client {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.content .contentimage img {
+  width: 350px;
+}
+.content .mobileimage {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .navmain, .desktopauth {
+    display: none;
+  }
+  .navmobilemenu, .navmobile {
+    display: block;
+  }
+  .navmobilemenu img {
+    padding-top: 0.7em;
+    cursor: pointer;
+  }
+  .navmobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    background: var(--color-AlmostWhite);
+    transition: width 0.5s ease-in-out;
+  }
+  .navmobile .closebtn {
+    margin: 0.5em 1em 0 0;
+    text-align: right;
+    cursor: pointer;
+  }
+  .navmobile a.withborder {
+    padding: 0.8em;
+  }
+  .navmobile a.withborder li {
+    margin-bottom: 0;
+  }
+  .navmobile a.withborder:hover {
+    border: 2px solid var(--color-AlmostBlack);
+  }
+  .navmobile a.witharrow::after {
+    content: url(../images/icon-arrow-down.svg);
+    margin-left: 0.5em;
+  }
+  .navmobile a.witharrow:focus::after {
+    content: url(../images/icon-arrow-up.svg);
+  }
+  .navmobile ul.dropdownmobile {
+    padding: 1em 1.5em;
+  }
+  .navmobile ul.dropdownmobile a {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    margin-bottom: 0.5em;
+  }
+  .navmobile ul.dropdownmobile a img {
+    transform: translateY(-5px);
+  }
+  .navmobile ul.dropdownmobile li {
+    display: block;
+    margin: 0;
+  }
+  .navmobile .flex-col {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 1em;
+  }
+  .navmobile ul.companymobile li {
+    margin-bottom: 0.5em;
+  }
+  .navmobile .authmobile {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    text-align: center;
+  }
+  .navbar nav ul a {
+    padding: 0;
+    font-size: 1em;
+  }
+  .navbar nav ul li {
+    margin: 0;
+    margin-bottom: 1em;
+  }
+  #featureMobile, #companyMobile {
+    display: none;
+  }
+  .dekstopimage {
+    display: block;
+  }
+}
+@media (max-width: 815px) {
+  .content .mobileimage {
+    display: block;
+  }
+  .desktopimage {
+    display: none;
+  }
+  .content {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .content .contentmain {
+    text-align: center;
+  }
+  .content .contentmain h1 {
+    font-size: 4em;
+    padding-right: 0;
+  }
+  .content .contentmain p {
+    width: 40rem;
+    margin: 0 auto;
+  }
+  .content .contentmain a {
+    margin: 1.5em auto;
+  }
+  .content .contentmain .client {
+    margin: 1.5em auto;
+  }
+  .content .contentimage {
+    margin-bottom: 5em;
+  }
+  .content .contentimage img {
+    width: 100%;
+  }
+}
+@media (max-width: 375px) {
+  .content .contentmain h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+  }
+  .content .contentmain p {
+    width: 95%;
+  }
+  .content .contentmain .client {
+    padding: 0 1em;
+  }
+  .content .contentmain .client img {
+    width: 90%;
+  }
+  .content .contentimage {
+    margin-bottom: 2em;
+  }
+}/*# sourceMappingURL=main.css.map */
